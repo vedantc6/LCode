@@ -1,5 +1,3 @@
-import copy
-
 def merge(arr, first, mid, last):
     n1 = mid - first + 1
     n2 = last - mid
