@@ -26,7 +26,7 @@ def counting_sort(arr):
     return result
 
 
-arr = [3, 1, 4, 3, 1, 10, 9, 8, 4]
+arr = [0, 1, 0, 0, 1, 1, 0, 0, 1, 0]
 result = counting_sort(arr)
 for i in result:
     print (i)
