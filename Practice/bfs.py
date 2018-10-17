@@ -19,13 +19,11 @@ class Graph:
         visited[start] = True
 
         while queue:
-            start = queue.pop(0)
-            print(start, end = " ")
-
-            for i in self.graph[start]:
-                if visited[i] == False:
-                    queue.append(i)
-                    visited[i] = True
+            vertex = queue.pop(0)
+            print(vertex, end = " ")
+            for v in self.graph[vertex]:
+                queue.append(v)
+                visited[v] = True
         print("\n")
 
 if __name__ == "__main__":
