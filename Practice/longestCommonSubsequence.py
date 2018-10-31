@@ -24,7 +24,7 @@ def longestCommonSubsequenceM(X, Y, m, n, L):
 
 # Through dynamic programming
 def longestCommonSubsequenceDP(X, Y, m, n):
-    R = [[-1]*(n+1)  for i in range(m+1)]
+    R = [[-1]*(n+1) for i in range(m+1)]
 
     for i in range(m+1):
         for j in range(n+1):
