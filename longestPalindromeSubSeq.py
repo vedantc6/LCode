@@ -46,3 +46,30 @@ class Solution:
                 else:
                     R[i][j] = max(R[i-1][j], R[i][j-1])
         return R[n][n]
+
+class Solution:
+    def expandAroundCenter(self, s, l, r):
+        left = l
+        right = r
+        while (left >= 0 and right < len(s) and s[left] == s[right]):
+            left -= 1
+            right += 1
+        return (right - left - 1)
+
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        if (not s) or len(s) < 1: return ""
+        start = 0
+        end = 0
+        for i in range(len(s)):
+            len1 = self.expandAroundCenter(s, i, i)
+            len2 = self.expandAroundCenter(s, i, i+1)
+            len3 = max(len1, len2)
+            if (len3 > end-start):
+                start = i - (len3 - 1)//2
+                end = i + (len3 + 1)//2
+
+        return s[start:end]
