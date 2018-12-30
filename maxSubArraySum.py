@@ -34,3 +34,35 @@ class Solution:
         first = 0
         last = len(nums) - 1
         return self.maxSubArrayUtil(nums, first, last)
+
+# Faster - dynammix programming
+class Solution:
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return None
+        max_ending_here = max_so_far = nums[0]
+        for i in nums[1:]:
+            max_ending_here = max(i, i + max_ending_here)
+            max_so_far = max(max_ending_here, max_so_far)
+
+        return max_so_far
+
+# Even Faster
+class Solution:
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        for i in range(1, len(nums)):
+            if nums[i-1] > 0:
+                nums[i] += nums[i-1]
+
+        return max(nums)
+
+
+ 
