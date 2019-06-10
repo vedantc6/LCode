@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 
 .quick_sort_modification.py
+*.vscode
