@@ -18,3 +18,16 @@ class Solution:
                 ans = len(temp)
 
         return ans
+
+# Optimized sliding window
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        n = len(s)
+        charDict = {}
+        ans, i = 0, 0
+        for j in range(n):
+            if s[j] in charDict:
+                i = max(charDict[s[j]], i)
+            ans = max(ans, j-i+1)
+            charDict[s[j]] = j+1
+        return ans
