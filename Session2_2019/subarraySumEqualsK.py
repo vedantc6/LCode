@@ -56,4 +56,28 @@ class Solution(object):
 
         return total
 
-# Using hashmap
+# Using hashmap O(n)
+class Solution(object):
+    def subarraySum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        n = len(nums)
+        count = 0
+        sum1 = 0
+        hashmap = {}
+        hashmap[0] = 1
+        for i in range(n):
+            sum1 += nums[i]
+            if (sum1 - k) in hashmap:
+                count += hashmap[sum1-k]
+            if sum1 not in hashmap:
+                hashmap[sum1] = 1
+            else:
+                hashmap[sum1] += 1
+
+        return count
